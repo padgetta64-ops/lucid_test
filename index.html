@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <title>Roblox Web Game</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+
+  <div id="ui-container">
+    <div id="top-left-bar">
+      <button id="menu-btn" class="icon-btn" aria-label="Game Menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <button id="chat-btn" class="icon-btn" aria-label="Toggle Chat">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="chat-box" class="chat-box hidden">
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="To chat click here or press enter..." maxlength="120" autocomplete="off">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+
+    <div id="speech-bubbles-container"></div>
+
+    <div id="joystick-zone">
+      <div id="joystick-base">
+        <div id="joystick-knob"></div>
+      </div>
+    </div>
+
+    <button id="jump-btn" aria-label="Jump">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+        <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="game-menu-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2>Game Settings</h2>
+      <div class="modal-actions">
+        <button id="btn-resume" class="menu-action-btn primary">Resume Game</button>
+        <button id="btn-respawn" class="menu-action-btn secondary">Reset Character</button>
+        <button id="btn-leave" class="menu-action-btn danger">Leave Experience</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="leave-screen" class="full-screen-overlay hidden">
+    <div class="leave-card">
+      <h1>You left the game</h1>
+      <p>Thanks for playing!</p>
+      <button id="btn-rejoin" class="menu-action-btn primary">Rejoin Game</button>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+
